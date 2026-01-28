@@ -1,12 +1,32 @@
 export default {
   async fetch(request) {
+    const url = new URL(request.url);
+
+    const cookie = request.headers.get("Cookie") || "";
+    if (cookie.includes("region=cn")) {
+      return Response.redirect("https://cn.ich.cc.cd" + url.pathname + url.search, 302);
+    }
+    if (cookie.includes("region=global")) {
+      return Response.redirect("https://www.ich.cc.cd" + url.pathname + url.search, 302);
+    }
+
     const country = request.cf?.country || "UN";
+    const isCN = country === "CN";
 
-    const target =
-      country === "CN"
-        ? "https://cn.ich.cc.cd"
-        : "https://www.ich.cc.cd";
+    const target = isCN
+      ? "https://cn.ich.cc.cd"
+      : "https://www.ich.cc.cd";
 
-    return Response.redirect(target, 302);
+    const headers = new Headers({
+      "Set-Cookie": `region=${isCN ? "cn" : "global"}; Path=/; Max-Age=2592000`
+    });
+
+    return new Response(null, {
+      status: 302,
+      headers: {
+        ...Object.fromEntries(headers),
+        Location: target + url.pathname + url.search
+      }
+    });
   }
 };
