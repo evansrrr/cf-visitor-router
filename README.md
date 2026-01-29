@@ -7,8 +7,6 @@ based on their geographic location.
 This project is designed especially for improving website access speed
 for users in Mainland China, while keeping global users on the main site.
 
-------------------------------------------------------------
-
 Features
 --------
 - Route visitors based on country or region
@@ -18,8 +16,6 @@ Features
 - Rule-based configuration
 - No external dependencies
 - Works with Cloudflare Workers and Pages
-
-------------------------------------------------------------
 
 Routing Modes
 -------------
@@ -39,8 +35,6 @@ Disadvantages:
 Source file:
 src/redirect-router.js
 
-------------------------------------------------------------
-
 2. Proxy Mode (Recommended)
 
 Acts as a reverse proxy and keeps the original URL unchanged.
@@ -55,8 +49,6 @@ Disadvantages:
 
 Source file:
 src/proxy-router.js
-
-------------------------------------------------------------
 
 Configuration
 -------------
@@ -84,16 +76,12 @@ Explanation:
 - match: ISO 3166-1 alpha-2 country codes
 - '*' means fallback rule
 
-------------------------------------------------------------
-
 SEO Strategy (Proxy Mode)
 ------------------------
 
 - All regions share the same URL
 - Canonical header is unified
 - Prevents duplicate indexing by search engines
-
-------------------------------------------------------------
 
 Deployment
 ----------
@@ -111,8 +99,6 @@ Using Wrangler:
 
 Bind your custom domain to the Worker in the Cloudflare Dashboard.
 
-------------------------------------------------------------
-
 Use Cases
 ---------
 
@@ -120,8 +106,6 @@ Use Cases
 - Cloudflare Pages acceleration for Mainland China
 - Multi-region site routing
 - Geo-based traffic optimization
-
-------------------------------------------------------------
 
 License
 -------
