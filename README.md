@@ -33,7 +33,7 @@ Disadvantages:
 - Extra redirect latency
 
 Source file:
-src/redirect-router.js
+/redirect-router.js
 
 2. Proxy Mode (Recommended)
 
@@ -48,7 +48,7 @@ Disadvantages:
 - Slightly more complex logic
 
 Source file:
-src/proxy-router.js
+/proxy-router.js
 
 Configuration
 -------------
@@ -88,18 +88,11 @@ SEO Strategy (Proxy Mode)
 Deployment
 ----------
 
-Using Wrangler:
+Paste one of the js script in Cloudflare Workers and config your routing rules.
 
-1. Install Wrangler
-   npm install -g wrangler
+If you don't know which site serves better, you cam check [WebpageTest](https://webpagetest.org).
 
-2. Login to Cloudflare
-   wrangler login
-
-3. Deploy
-   wrangler deploy
-
-Bind your custom domain to the Worker in the Cloudflare Dashboard.
+Bind your custom domain to the Worker in the Cloudflare Dashboard. Proxy mode is recommended.
 
 Use Cases
 ---------
